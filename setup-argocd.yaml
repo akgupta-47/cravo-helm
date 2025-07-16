@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: my-local-app
+  name: cravo-helm-app
   namespace: argocd
 spec:
   destination:
@@ -9,9 +9,9 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    repoURL: https://github.com/<your-username>/<your-helm-repo>
+    repoURL: https://github.com/akgupta-47/cravo-helm
     targetRevision: main
-    path: path/to/chart
+    path: cravo-helm
     helm:
       valueFiles:
         - values.yaml

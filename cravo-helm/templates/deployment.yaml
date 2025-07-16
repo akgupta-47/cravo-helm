@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata: 
-  name: "{{ .Release.Name }}-golang-kubernetes-deploy"
+  name: "{{ .Release.Name }}-deployment"
   labels:
     app: go-pod
 spec: 
