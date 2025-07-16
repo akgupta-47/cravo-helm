@@ -1,15 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "cravo-helm.fullname" . }}
+  name: "{{ .Release.Name }}-golang-kubernetes-service"
   labels:
-    {{- include "cravo-helm.labels" . | nindent 4 }}
+    app: go-pod
 spec:
-  type: {{ .Values.service.type }}
-  ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
-      protocol: TCP
-      name: http
   selector:
-    {{- include "cravo-helm.selectorLabels" . | nindent 4 }}
+    app: go-pod
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
